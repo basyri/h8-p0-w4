@@ -21,19 +21,25 @@ function changeMe(arr) {
     // you can only write your code here!
     var obj = {}
     var num = 1
-    for (var i = 0; i < arr.length; i++) {
-        obj.firstName = arr[i][0]
-        obj.lastName = arr[i][1]
-        obj.gender = arr[i][2]
-        obj.age = 2019 - arr[i][3]
 
-        if (isNaN(obj.age)) {
-            obj.age = 'Invalid Birth Year'
+    if (arr.length !== 0) {
+        for (var i = 0; i < arr.length; i++) {
+            obj.firstName = arr[i][0]
+            obj.lastName = arr[i][1]
+            obj.gender = arr[i][2]
+            obj.age = 2019 - arr[i][3]
+
+            if (isNaN(obj.age)) {
+                obj.age = 'Invalid Birth Year'
+            }
+            var title = num + '. ' + obj.firstName + ' ' + obj.lastName + ':'
+            console.log(title)
+            console.log(obj)
+            console.log('\n')
+            num++
         }
-        var title = num + '. ' + obj.firstName + ' ' + obj.lastName + ':'
-        console.log(title)
-        console.log(obj)
-        num++
+    } else {
+        console.log('""')
     }
 
 }
