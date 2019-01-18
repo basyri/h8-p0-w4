@@ -24,19 +24,23 @@ array kosong maka kembalikan nilai 'No number'
 
 function deepSum(arr) {
     // Code disini
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr[i].length; j++) {
-            // var count = 0
-            for (var l = 0; l < arr[i][j].length; l++) {
-                // count += arr[l]
-                console.log(arr[l])
+    var result = 0
+    if (arr.length !== 0) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr[i].length; j++) {
+
+                for (var k = 0; k < arr[i][j].length; k++) {
+
+                    result += arr[i][j][k]
+                }
 
             }
-
         }
-    }
 
-    // return count
+        return result
+    } else {
+        return 'No number'
+    }
 }
 
 //TEST CASE
@@ -58,25 +62,25 @@ console.log(deepSum([
     ]
 ])); // 316
 
-// console.log(deepSum([
-//     [
-//         [20, 10],
-//         [15],
-//         [1, 1]
-//     ],
-//     [
-//         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-//         [2],
-//         [9, 11]
-//     ],
-//     [
-//         [3, 5, 1],
-//         [1, 5, 3],
-//         [1]
-//     ],
-//     [
-//         [2]
-//     ]
-// ])); // 156
+console.log(deepSum([
+    [
+        [20, 10],
+        [15],
+        [1, 1]
+    ],
+    [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        [2],
+        [9, 11]
+    ],
+    [
+        [3, 5, 1],
+        [1, 5, 3],
+        [1]
+    ],
+    [
+        [2]
+    ]
+])); // 156
 
-// console.log(deepSum([])); // No number
+console.log(deepSum([])); // No number
