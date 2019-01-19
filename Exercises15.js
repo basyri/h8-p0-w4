@@ -102,4 +102,4 @@ console.log('\n')
 // // }
 
 
-// console.log(highestScore([])); //{}
+console.log(highestScore([])); //{}
