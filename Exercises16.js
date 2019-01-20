@@ -21,39 +21,37 @@ Output yang diharapkan berupa Object Literal dengan format sebagai berikut:
 */
 function graduates(students) {
     // Code disini
+    var finalObj = {}
+    for (var i = 0; i < students.length; i++) {
 
-    if (students.length !== 0) {
-        var objectFinal = {}
-        var arr = []
-        for (var i = 0; i < students.length; i++) {
-            var obj = {}
-            if (students[i]['score'] >= 75) {
-                obj = {
-                    name: students[i]['name'],
-                    score: students[i]['score']
-                }
-
-                if (objectFinal[students[i]['class']] === undefined) {
-                    arr.push(obj)
-                    objectFinal[students[i]['class']] = arr
-                } else if (objectFinal.hasOwnProperty(students[i]['class'])) {
-                    objectFinal[students[i]['class']].push(obj);
-                } else {
-                    arr.push(obj);
-                    objectFinal[students[i]['class']] = arr;
-
-                }
+        var obj = {}
+        if (obj === undefined) {
+            obj = {
+                name: '',
+                score: 0
+            }
+        }
+        if (students[i]['score'] >= 75) {
+            obj['name'] = students[i]['name']
+            obj['score'] = students[i]['score']
+            var arr = []
+            if (arr.length === 0) {
+                arr.push(obj)
+            } else {
+                arr.push(obj)
             }
 
-            arr = []
-
+            if (finalObj[students[i]['class']] === undefined) {
+                finalObj[students[i]['class']] = arr
+            } else if (finalObj.hasOwnProperty(students[i]['class'])) {
+                finalObj[students[i]['class']].push(obj)
+            } else {
+                finalObj[students[i]['class']] = arr
+            }
         }
 
-        // return obj
-        return objectFinal
-    } else {
-        return '{}'
     }
+    return finalObj
 }
 
 console.log(graduates([{
