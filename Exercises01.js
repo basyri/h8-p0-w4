@@ -8,18 +8,26 @@ jika angka tersebut adalah bilangan prima. Jika tidak, return false.
 
 function angkaPrima(angka) {
     // you can only write your code here!
-    var n = Number(angka);
+    // var n = Number(angka);
+
+    // var temp = []
+    // for (var j = 2; j <= angka; j++) {
     var prime = true;
 
-    for (var i = 2; i <= Math.sqrt(n); i++)
-        if (n % i === 0) {
-            return false
+    for (var i = 2; i < angka; i++) {
+        if (angka % i === 0) {
+            prime = false
         }
-    if (prime && n > 2) {
+    }
+    if (prime === true) {
         return true
     } else {
         return false
     }
+    // }
+    // else {
+    // return temp
+    // }
 }
 
 // TEST CASES

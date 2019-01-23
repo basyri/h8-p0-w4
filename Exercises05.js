@@ -11,12 +11,14 @@ d, k menjadi l, dan z menjadi a.
 
 function ubahHuruf(kata) {
     // you can only write your code here!
-    var alfabets = 'abcdefghijklmnopqrstupwxyz'
+    var alfabets = 'abcdefghijklmnopqrstuvwxyz'
     var temp = ''
     for (var i = 0; i < kata.length; i++) {
         for (var h = 0; h < alfabets.length - 1; h++) {
             if (alfabets[h] === kata[i]) {
                 temp += alfabets[h + 1]
+            } else if (alfabets[alfabets.length - 1] === undefined) {
+                alfabets[alfabets.length - 1] = alfabets[0]
             }
         }
     }
