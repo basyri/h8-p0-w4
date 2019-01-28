@@ -13,21 +13,37 @@ Contohnya [1, 1, 1] adalah -1.
 
 function cariModus(arr) {
     // you can only write your code here!
+    var elemen = 0;
+    var count = 0;
+    var tamp = 0;
 
     for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (arr[i] === arr[j]) {
-                return arr[i]
-            } else if (arr[i] === arr[arr.length - 2]) {
-                return -1
-            }
-            // if (arr[ji] % arr[j] === 0) {
-            //     return -1
-            // }
 
+        for (var j = 0; j < arr.length; j++) {
+
+            if (arr[i] == arr[j] && i !== j) {
+                tamp++;
+
+                if (tamp > count) {
+                    count = tamp;
+                    elemen = i;
+                }
+            }
         }
     }
-    // return temp
+
+    if (count === 0) {
+        return -1;
+    }
+
+    var angka = 0;
+    for (var k = 0; k < arr.length; k++) {
+        angka += arr[k];
+        if (angka / arr.length === arr[k]) {
+            return -1
+        }
+    }
+    return arr[elemen];
 
 }
 
