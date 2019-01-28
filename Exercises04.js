@@ -13,37 +13,40 @@ Contohnya [1, 1, 1] adalah -1.
 
 function cariModus(arr) {
     // you can only write your code here!
-    var elemen = 0;
-    var count = 0;
-    var tamp = 0;
+    var indexModus = 0;
+    // var counter = 0;
+    var countTwin = 0;
 
     for (var i = 0; i < arr.length; i++) {
-
+        // scan arr values
         for (var j = 0; j < arr.length; j++) {
-
+            // 
             if (arr[i] == arr[j] && i !== j) {
-                tamp++;
+                countTwin++;
 
-                if (tamp > count) {
-                    count = tamp;
-                    elemen = i;
-                }
+                // if (countTwin > counter) {
+                //     counter = countTwin;
+                //save mode location
+                indexModus = i;
+                // }
             }
         }
     }
 
-    if (count === 0) {
+    if (countTwin === 0) {
         return -1;
     }
 
-    var angka = 0;
+    var sum = 0;
+    // looking for average
     for (var k = 0; k < arr.length; k++) {
-        angka += arr[k];
-        if (angka / arr.length === arr[k]) {
+        sum += arr[k];
+        if (sum / arr.length === arr[k]) {
             return -1
         }
     }
-    return arr[elemen];
+    //return mode value
+    return arr[indexModus];
 
 }
 
