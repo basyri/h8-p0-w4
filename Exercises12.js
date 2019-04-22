@@ -10,19 +10,21 @@ function countProfit(shoppers) {
         var final = []
         for (var i = 0; i < listBarang.length; i++) {
             var Obj = {}
-            var name = []
+            Obj = {
+                shoppers: []
+            }
+            // var name = []
             var leftOver = listBarang[i][2]
             var totalProfit = 0
 
             for (var j = 0; j < shoppers.length; j++) {
                 if (listBarang[i][0] === shoppers[j]['product'] && shoppers[j]['amount'] <= leftOver) {
-                    name.push(shoppers[j]['name'])
+                    Obj.shoppers.push(shoppers[j]['name'])
                     leftOver = leftOver - shoppers[j]['amount']
                     totalProfit = totalProfit + (listBarang[i][1] * shoppers[j]['amount'])
                 }
             }
             Obj.product = listBarang[i][0]
-            Obj.shoppers = name
             Obj.leftOver = leftOver
             Obj.totalProfit = totalProfit
 
